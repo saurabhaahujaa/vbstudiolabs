@@ -1,7 +1,7 @@
 {
   "id": "experiments",
   "description": "Flow main",
-  "defaultPage": "experiments-start",
+  "defaultPage": "experiments-fragment-demo",
   "services": {},
   "types": {},
   "variables": {}

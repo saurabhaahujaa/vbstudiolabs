@@ -1,0 +1,26 @@
+{
+  "description": "",
+  "root": "assignExpid",
+  "actions": {
+    "assignExpid": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.selectExpId": {
+          "source": "{{ $variables.rowKey }}"
+        }
+      }
+    }
+  },
+  "variables": {
+    "rowKey": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "rowData": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}
