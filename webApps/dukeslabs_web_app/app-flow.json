@@ -140,7 +140,7 @@
   "security": {},
   "imports": {
     "css": [
-      "https://static.oracle.com/cdn/fnd/gallery/2210.0.0/images/iconfont/ojuxIconFont.min.css",
+      "https://static.oracle.com/cdn/fnd/gallery/2304.0.0/images/iconfont/ojuxIconFont.min.css",
       "/resources/css/app.css"
     ]
   },

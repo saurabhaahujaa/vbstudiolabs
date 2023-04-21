@@ -45,7 +45,7 @@
 <div class="oj-flex">
   <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-6"
     data="[[$variables.labExperimentsListSDP]]"
-    columns='[{"headerText":"exp_id","field":"expId"},{"headerText":"Name","field":"name"},{"headerText":"owner","field":"owner"},{"headerText":"budget","field":"budget"},{"headerText":"start_time","field":"startTime"},{"headerText":"end_time","field":"endTime"}]'
+    columns='[{"headerText":"Experiment Name","field":"name","resizable":"enabled"},{"headerText":"Scientist","field":"owner","resizable":"enabled"},{"headerText":"Budget","field":"budget","resizable":"enabled"},{"headerText":"start_time","field":"startTime"}]'
     id="exp-table" selection-mode.row="single" selection-mode.column="single"
     on-first-selected-row-changed="[[ $listeners.exp_tableSelectionChanged ]]"></oj-table>
 </div>

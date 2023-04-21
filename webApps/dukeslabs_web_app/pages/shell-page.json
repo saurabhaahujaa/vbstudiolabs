@@ -1,6 +1,6 @@
 {
   "description": "",
-  "routerFlow": "experiments",
+  "routerFlow": "lab-clients",
   "variables": {
     "avatarInfo": {
       "type": "object",
