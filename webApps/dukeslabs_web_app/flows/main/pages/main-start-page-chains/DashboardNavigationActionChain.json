@@ -1,0 +1,20 @@
+{
+  "description": "",
+  "root": "navigateToMainDashboard",
+  "actions": {
+    "navigateTo": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {}
+    },
+    "navigateToMainDashboard": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "main-dashboard"
+      },
+      "outcomes": {
+        "success": "navigateTo"
+      }
+    }
+  },
+  "variables": {}
+}

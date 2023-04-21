@@ -1,7 +1,13 @@
 {
   "title": "main dashboard",
   "description": "",
-  "variables": {},
+  "variables": {
+    "expName": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    }
+  },
   "metadata": {},
   "types": {},
   "eventListeners": {
@@ -17,6 +23,9 @@
     "components": {
       "oj-button": {
         "path": "ojs/ojbutton"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
       }
     }
   }

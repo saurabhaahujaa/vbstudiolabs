@@ -1,10 +1,23 @@
 {
   "title": "main",
   "description": "",
-  "variables": {},
+  "variables": {
+    "expName": {
+      "type": "string",
+      "required": false,
+      "input": "none"
+    }
+  },
   "metadata": {},
   "types": {},
   "eventListeners": {
+    "dashboardButtonAction": {
+      "chains": [
+        {
+          "chainId": "DashboardActionChain"
+        }
+      ]
+    },
     "toggleDrawer": {
       "chains": [
         {
@@ -12,6 +25,7 @@
         }
       ]
     }
+
   },
   "imports": {
     "components": {
