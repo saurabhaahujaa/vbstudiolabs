@@ -5,10 +5,7 @@
     "navigateToMainDashboard": {
       "module": "vb/action/builtin/navigateAction",
       "parameters": {
-        "page": "main-dashboard",
-        "params": {
-          "expName": "{{ $page.variables.expName }}"
-        }
+        "page": "main-dashboard"
       }
     }
   },

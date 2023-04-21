@@ -18,6 +18,16 @@
         }
       ]
     },
+    "expNameValue": {
+      "chains": [
+        {
+          "chainId": "ExpNameValueChangeChain",
+          "parameters": {
+            "value": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
     "toggleDrawer": {
       "chains": [
         {

@@ -17,6 +17,14 @@
           "chainId": "application:toggleDrawerHandler"
         }
       ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "updateExpData"
+        }
+      ]
     }
   },
   "imports": {

@@ -41,7 +41,7 @@
 </div>
 <div class="oj-flex">
   <oj-input-text label-hint="Search For Experiments" class="oj-flex-item oj-sm-12 oj-md-6" id="exp-Name"
-    value="{{ $variables.expName }}"></oj-input-text>
+    value="{{ $variables.expName }}" on-value-changed="[[$listeners.expNameValue]]"></oj-input-text>
   <div class="oj-flex-item oj-sm-12 oj-md-2">
     <oj-button label="Dashboard" id="dashboard-button" on-oj-action="[[$listeners.dashboardButtonAction]]"></oj-button>
   </div>
