@@ -1,0 +1,12 @@
+{
+  "id": "main",
+  "description": "Flow main",
+  "defaultPage": "main-start",
+  "services": {},
+  "types": {},
+  "variables": {
+    "expName": {
+      "type": "string"
+    }
+  }
+}

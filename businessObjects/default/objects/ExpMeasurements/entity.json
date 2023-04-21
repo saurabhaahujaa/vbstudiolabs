@@ -1,0 +1,122 @@
+{
+    "displayLabel": "Experiment Measurements",
+    "name": "ExpMeasurements",
+    "oid": "6bfc99ce-8bb4-4b23-83b6-66a01bc335cd",
+    "fields": [
+        {
+            "displayLabel": "Id",
+            "name": "id",
+            "oid": "924ccdfa-2c75-448f-b5c8-9a8cf706a9d1",
+            "type": "number",
+            "required": true
+        },
+        {
+            "displayLabel": "Created",
+            "historyType": "timeCreated",
+            "name": "creationDate",
+            "oid": "86368015-40ba-4016-8eaf-90ecc68318d1",
+            "type": "datetime"
+        },
+        {
+            "displayLabel": "Last Updated",
+            "historyType": "timeUpdated",
+            "name": "lastUpdateDate",
+            "oid": "74ac906a-0c5e-47c8-98d5-22a0096353d3",
+            "type": "datetime"
+        },
+        {
+            "displayLabel": "Created By",
+            "historyType": "createdBy",
+            "name": "createdBy",
+            "oid": "6d01b108-9702-45b8-97c9-78a01f2e1681",
+            "type": "string"
+        },
+        {
+            "displayLabel": "Last Updated By",
+            "historyType": "updatedBy",
+            "name": "lastUpdatedBy",
+            "oid": "d971359a-c447-434d-8950-8fda265719b8",
+            "type": "string"
+        },
+        {
+            "displayLabel": "Version Number",
+            "historyType": "versionNumber",
+            "name": "versionNumber",
+            "oid": "86e28bed-38fc-4926-8b7c-48da9c2daa03",
+            "type": "number"
+        },
+        {
+            "displayLabel": "measure_id",
+            "name": "measureId",
+            "oid": "9ca3e749-0c9d-4da7-bee0-811eda708116",
+            "type": "number",
+            "required": true,
+            "internal": true,
+            "key": true,
+            "unique": true
+        },
+        {
+            "displayLabel": "value",
+            "name": "value",
+            "scale": 3,
+            "oid": "620d8e00-0d61-4287-9a72-5146493839af",
+            "type": "number",
+            "required": true
+        },
+        {
+            "displayLabel": "unit",
+            "name": "unit",
+            "oid": "57cc1a5a-db7c-4570-8f1f-3b572058bd58",
+            "type": "string",
+            "required": true
+        },
+        {
+            "displayLabel": "exp_id",
+            "name": "expId",
+            "oid": "6aa32d7c-b915-460a-8f1c-2a17de5d299d",
+            "type": "number",
+            "required": true
+        },
+        {
+            "displayLabel": "start_time",
+            "name": "startTime",
+            "oid": "02e39a30-7ae9-4f99-bd5b-851b2e94881e",
+            "type": "string",
+            "required": true
+        },
+        {
+            "displayLabel": "end_time",
+            "name": "endTime",
+            "oid": "264c279c-f1e6-4b24-830a-a84a853f275c",
+            "type": "string",
+            "required": true
+        },
+        {
+            "displayLabel": "lstaff_id",
+            "name": "lstaffId",
+            "oid": "039d8b91-9b68-47a3-a59c-b18e78429514",
+            "type": "number",
+            "required": true
+        }
+    ],
+    "relationships": [
+        {
+            "name": "expIdObject",
+            "reverseRelationship": "experimentMeasurementsCollecti",
+            "targetEntity": "LabExperiments",
+            "type": "outgoing",
+            "exposeAccessor": true,
+            "mappingField": "expId",
+            "deleteRule": "restrict"
+        }        ,
+        {
+            "name": "lstaffIdObject",
+            "reverseRelationship": "experimentMeasurementsCollecti",
+            "targetEntity": "STAFF",
+            "type": "outgoing",
+            "exposeAccessor": true,
+            "mappingField": "lstaffId",
+            "deleteRule": "restrict"
+        }
+      ]
+}

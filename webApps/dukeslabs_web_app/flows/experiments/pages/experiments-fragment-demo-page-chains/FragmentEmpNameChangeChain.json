@@ -1,0 +1,23 @@
+{
+  "description": "",
+  "root": "fireNotification",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "Fragment Exp Name",
+        "message": "[[ $variables.expname ]]",
+        "type": "info",
+        "displayMode": "transient"
+      }
+    }
+  },
+  "variables": {
+    "expname": {
+      "required": false,
+      "type": "string",
+      "input": "fromCaller"
+    }
+  }
+}

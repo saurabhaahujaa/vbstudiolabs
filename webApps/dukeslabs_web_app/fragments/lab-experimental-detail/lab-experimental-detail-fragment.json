@@ -1,0 +1,67 @@
+{
+  "title": "",
+  "description": "",
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    }
+  },
+  "events": {
+    "empNameChange": {
+      "propagationBehavior": "container",
+      "description": "Emits to container",
+      "payloadType": {
+        "expname": "string"
+      }
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      }
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.get_LabExperiments": {
+      "endpoint": "get_LabExperiments",
+      "service": "businessObjects",
+      "path": "response"
+    },
+    "get_LabExperiments": {
+      "budget": "number",
+      "expId": "number",
+      "name": "string",
+      "owner": "number"
+    }
+  },
+  "variables": {
+    "expId": {
+      "type": "string",
+      "required": true,
+      "onValueChanged": {
+        "chains": [
+          {
+            "parameters": {
+              "event": "{{ $event }}"
+            },
+            "chainId": "localLabExperiment"
+          }
+        ]
+      },
+      "input": "fromCaller"
+    },
+    "get_LabExperiment": {
+      "type": "get_LabExperiments"
+    }
+  },
+  "referenceable": "self"
+}

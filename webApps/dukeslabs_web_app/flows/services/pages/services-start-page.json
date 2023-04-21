@@ -1,0 +1,52 @@
+{
+  "title": "services",
+  "description": "",
+  "variables": {
+    "contactsListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "crmRestApi/getall_contacts",
+        "keyAttributes": "PartyNumber",
+        "itemsPath": "items",
+        "responseType": "getallContactsResponse"
+      }
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getallContactsResponse": {
+      "endpoint": "getall_contacts",
+      "service": "crmRestApi",
+      "path": "response"
+    },
+    "getallContactsResponse": {
+      "items": [
+        {
+          "ContactName": "string",
+          "Country": "string",
+          "DateOfBirth": "string",
+          "PartyNumber": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+    }
+  }
+}

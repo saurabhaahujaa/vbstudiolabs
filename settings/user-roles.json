@@ -1,0 +1,9 @@
+{
+  "userroles":[
+    {
+      "name": "Scientists",
+      "description": "",
+      "id": "Scientists"
+    }
+  ]
+}

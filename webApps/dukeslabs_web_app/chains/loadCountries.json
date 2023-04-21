@@ -1,0 +1,44 @@
+{
+  "root": "callRestGetAll",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetAll.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetAll": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Countries/getAll"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesCountryADP"
+      }
+    },
+    "assignVariablesCountryADP": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$application.variables.countryADP": {
+          "source": {
+            "data": "{{ $chain.results.callRestGetAll.body }}"
+          },
+          "reset": "none",
+          "auto": "always",
+          "mapping": {
+            "$target.data": {
+              "source": "$source.data",
+              "reset": "empty"
+            }
+          }
+        }
+      }
+    }
+  }
+}

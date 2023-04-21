@@ -1,0 +1,304 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "11.13.18.05",
+        "title": "Sales and Service",
+        "x-vb": {
+            "serviceType": "adf-describe",
+            "transforms": {
+                "path": "vb/BusinessObjectsTransforms"
+            }
+        }
+    },
+    "servers": [
+        {
+            "url": "vb-catalog://backends/crmRestApi/11.13.18.05"
+        }
+    ],
+    "tags": [
+        {
+            "name": "contacts"
+        }
+    ],
+    "paths": {
+        "/contacts": {
+            "get": {
+                "tags": [
+                    "contacts"
+                ],
+                "summary": "Get all",
+                "operationId": "getall_contacts",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/expand"
+                    },
+                    {
+                        "$ref": "#/components/parameters/fields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/onlyData"
+                    },
+                    {
+                        "$ref": "#/components/parameters/links"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/offset"
+                    },
+                    {
+                        "$ref": "#/components/parameters/totalResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/q"
+                    },
+                    {
+                        "$ref": "#/components/parameters/orderBy"
+                    },
+                    {
+                        "$ref": "vb-catalog://backends/crmRestApi/11.13.18.05/describe?partialDescriptionForCatalogOpenAPI=contacts#/components/parameters/contacts-finder"
+                    },
+                    {
+                        "$ref": "#/components/parameters/REST-Framework-Version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Metadata-Context"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "$ref": "vb-catalog://backends/crmRestApi/11.13.18.05/describe?partialDescriptionForCatalogOpenAPI=contacts#/components/responses/contacts-collection-response"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "contacts"
+                ],
+                "summary": "Create",
+                "operationId": "create_contacts",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/fields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Upsert-Mode"
+                    },
+                    {
+                        "$ref": "#/components/parameters/REST-Framework-Version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Metadata-Context"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "$ref": "vb-catalog://backends/crmRestApi/11.13.18.05/describe?partialDescriptionForCatalogOpenAPI=contacts#/components/responses/contacts-item-response"
+                    }
+                },
+                "requestBody": {
+                    "$ref": "vb-catalog://backends/crmRestApi/11.13.18.05/describe?partialDescriptionForCatalogOpenAPI=contacts#/components/requestBodies/contacts-item-post-request"
+                }
+            }
+        },
+        "/contacts/{contacts_Id}": {
+            "parameters": [
+                {
+                    "$ref": "vb-catalog://backends/crmRestApi/11.13.18.05/describe?partialDescriptionForCatalogOpenAPI=contacts#/components/parameters/contacts_Id"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "contacts"
+                ],
+                "summary": "Get",
+                "operationId": "get_contacts",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/expand"
+                    },
+                    {
+                        "$ref": "#/components/parameters/fields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/onlyData"
+                    },
+                    {
+                        "$ref": "#/components/parameters/dependency"
+                    },
+                    {
+                        "$ref": "#/components/parameters/links"
+                    },
+                    {
+                        "$ref": "#/components/parameters/REST-Framework-Version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Metadata-Context"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "$ref": "vb-catalog://backends/crmRestApi/11.13.18.05/describe?partialDescriptionForCatalogOpenAPI=contacts#/components/responses/contacts-item-response"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "contacts"
+                ],
+                "summary": "Delete",
+                "operationId": "delete_contacts",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/REST-Framework-Version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Metadata-Context"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "No Content. This task does not return elements in the response body."
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "contacts"
+                ],
+                "summary": "Update",
+                "operationId": "update_contacts",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/fields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/REST-Framework-Version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Metadata-Context"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "$ref": "vb-catalog://backends/crmRestApi/11.13.18.05/describe?partialDescriptionForCatalogOpenAPI=contacts#/components/responses/contacts-item-response"
+                    }
+                },
+                "requestBody": {
+                    "$ref": "vb-catalog://backends/crmRestApi/11.13.18.05/describe?partialDescriptionForCatalogOpenAPI=contacts#/components/requestBodies/contacts-item-patch-request"
+                }
+            }
+        }
+    },
+    "components": {
+        "parameters": {
+            "expand": {
+                "name": "expand",
+                "in": "query",
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "fields": {
+                "name": "fields",
+                "in": "query",
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "onlyData": {
+                "name": "onlyData",
+                "in": "query",
+                "schema": {
+                    "type": "boolean"
+                }
+            },
+            "links": {
+                "name": "links",
+                "in": "query",
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "limit": {
+                "name": "limit",
+                "in": "query",
+                "schema": {
+                    "type": "integer"
+                }
+            },
+            "offset": {
+                "name": "offset",
+                "in": "query",
+                "schema": {
+                    "type": "integer"
+                }
+            },
+            "totalResults": {
+                "name": "totalResults",
+                "in": "query",
+                "schema": {
+                    "type": "boolean"
+                }
+            },
+            "q": {
+                "name": "q",
+                "in": "query",
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "orderBy": {
+                "name": "orderBy",
+                "in": "query",
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "REST-Framework-Version": {
+                "name": "REST-Framework-Version",
+                "in": "header",
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9"
+                    ]
+                }
+            },
+            "Metadata-Context": {
+                "name": "Metadata-Context",
+                "in": "header",
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Upsert-Mode": {
+                "name": "Upsert-Mode",
+                "in": "header",
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "true",
+                        "false"
+                    ]
+                }
+            },
+            "dependency": {
+                "name": "dependency",
+                "in": "query",
+                "schema": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

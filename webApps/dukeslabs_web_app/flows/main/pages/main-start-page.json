@@ -1,0 +1,50 @@
+{
+  "title": "main",
+  "description": "",
+  "variables": {
+    "expName": {
+      "type": "string",
+      "required": false,
+      "input": "none"
+    }
+  },
+  "metadata": {},
+  "types": {},
+  "eventListeners": {
+    "dashboardButtonAction": {
+      "chains": [
+        {
+          "chainId": "DashboardNavigationActionChain"
+        }
+      ]
+    },
+    "expNameValue": {
+      "chains": [
+        {
+          "chainId": "ExpNameValueChangeChain",
+          "parameters": {
+            "value": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      }
+    }
+  }
+}

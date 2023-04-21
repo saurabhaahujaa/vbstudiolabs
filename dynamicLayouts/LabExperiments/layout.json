@@ -1,0 +1,105 @@
+{
+  "layoutTypes": {
+    "businessObjects": {
+      "kind": "operationRef",
+      "serviceId": "businessObjects",
+      "operations": [
+        "getall_LabExperiments"
+      ]
+    }
+  },
+  "layouts": {
+    "isDefault": {
+      "description": "Default Rule",
+      "type": "businessObjects",
+      "expression": "default"
+    },
+    "expTable": {
+      "type": "businessObjects",
+      "layoutType": "table",
+      "label": "expTable",
+      "rules": [
+        "isDefault"
+      ],
+      "layouts": {
+        "default": {
+          "layoutType": "table",
+          "layout": {
+            "displayProperties": [
+              "expId",
+              "name",
+              "owner",
+              "budget",
+              "complete",
+              "startTime",
+              "endTime"
+            ]
+          }
+        }
+      }
+    },
+    "isDefault2": {
+      "description": "Default Rule",
+      "type": "businessObjects",
+      "expression": "default"
+    },
+    "experimentLayout": {
+      "type": "businessObjects",
+      "layoutType": "table",
+      "label": "ExperimentLayout",
+      "rules": [
+        "isScientist",
+        "isIphone",
+        "isDefault2"
+      ],
+      "layouts": {
+        "default": {
+          "layoutType": "table",
+          "layout": {
+            "displayProperties": [
+              "id",
+              "name",
+              "owner"
+            ]
+          },
+          "usedIn": [
+            "isDefault2"
+          ]
+        },
+        "isIphone": {
+          "layoutType": "table",
+          "type": "businessObjects",
+          "label": "",
+          "description": "",
+          "layout": {
+            "displayProperties": [
+              "name"
+            ]
+          },
+          "usedIn": [
+            "isIphone"
+          ]
+        },
+        "isScientist": {
+          "layoutType": "table",
+          "layout": {
+            "displayProperties": [
+              "id",
+              "name",
+              "owner",
+              "budget"
+            ]
+          }
+        }
+      }
+    },
+    "isIphone": {
+      "expression": "[[ $responsive.smOnly === true ? 'isIphone' : null ]]"
+    },
+    "isScientist": {
+      "description": "Default Rule",
+      "type": "businessObjects",
+      "expression": "[[ $user.roles.includes('Scientists') ? 'isScientist' : null ]]"
+    }
+  }
+}

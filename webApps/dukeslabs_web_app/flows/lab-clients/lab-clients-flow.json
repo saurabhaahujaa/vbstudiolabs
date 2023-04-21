@@ -1,0 +1,8 @@
+{
+  "id": "lab-clients",
+  "description": "Flow main",
+  "defaultPage": "lab-clients-start",
+  "services": {},
+  "types": {},
+  "variables": {}
+}

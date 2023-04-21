@@ -1,0 +1,225 @@
+{
+  "title": "Lab Client Dashboard",
+  "description": "",
+  "variables": {
+    "labClientsListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "businessObjects/getall_LabClients",
+        "keyAttributes": "id",
+        "itemsPath": "items",
+        "responseType": "getallLabClientsResponse",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "name"
+          ]
+        }
+      }
+    },
+    "labExperimentsListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "businessObjects/getall_LabExperiments",
+        "keyAttributes": "expId",
+        "itemsPath": "items",
+        "responseType": "getallLabExperimentsResponse"
+      }
+    },
+    "labExperimentsListSDP2": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "businessObjects/getall_LabExperiments",
+        "keyAttributes": "expId",
+        "itemsPath": "items",
+        "responseType": "getallLabExperimentsResponse2",
+        "filterCriterion": {
+          "op": "$co",
+          "attribute": "labClient",
+          "value": "{{ $variables.selectedLabClient }}"
+        }
+      }
+    },
+    "labExperimentsListSDP3": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "businessObjects/getall_LabExperiments",
+        "keyAttributes": "expId",
+        "itemsPath": "items",
+        "responseType": "getallLabExperimentsResponse3",
+        "filterCriterion": {
+          "op": "$co",
+          "attribute": "labClient",
+          "value": "{{ $variables.selectedLabClient }}"
+        }
+      }
+    },
+    "selectedLabClient": {
+      "type": "string"
+    },
+    "sTAFFListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "businessObjects/getall_STAFF",
+        "keyAttributes": "lstaffId",
+        "itemsPath": "items",
+        "responseType": "getallSTAFFResponse",
+        "filterCriterion": {
+          "op": "$co",
+          "attribute": "labClientId",
+          "value": "{{ $variables.selectedLabClient }}"
+        }
+      }
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getallLabClientsResponse": {
+      "endpoint": "getall_LabClients",
+      "service": "businessObjects",
+      "path": "response"
+    },
+    "@decorators.getallLabExperimentsResponse": {
+      "endpoint": "getall_LabExperiments",
+      "service": "businessObjects",
+      "path": "response"
+    },
+    "@decorators.getallLabExperimentsResponse2": {
+      "endpoint": "getall_LabExperiments",
+      "service": "businessObjects",
+      "path": "response"
+    },
+    "@decorators.getallLabExperimentsResponse3": {
+      "endpoint": "getall_LabExperiments",
+      "service": "businessObjects",
+      "path": "response"
+    },
+    "@decorators.getallSTAFFResponse": {
+      "endpoint": "getall_STAFF",
+      "service": "businessObjects",
+      "path": "response"
+    },
+    "getallLabClientsResponse": {
+      "items": [
+        {
+          "countryCode": "string",
+          "flag": "string",
+          "id": "number",
+          "name": "string",
+          "scientistsCount": "number",
+          "staffCount": "number"
+        }
+      ]
+    },
+    "getallLabExperimentsResponse": {
+      "items": [
+        {
+          "budget": "number",
+          "expId": "number",
+          "name": "string",
+          "owner": "number"
+        }
+      ]
+    },
+    "getallLabExperimentsResponse2": {
+      "items": [
+        {
+          "budget": "number",
+          "expId": "number",
+          "name": "string",
+          "owner": "number"
+        }
+      ]
+    },
+    "getallLabExperimentsResponse3": {
+      "items": [
+        {
+          "budget": "number",
+          "expId": "number",
+          "name": "string"
+        }
+      ]
+    },
+    "getallSTAFFResponse": {
+      "items": [
+        {
+          "fullName": "string",
+          "id": "number",
+          "imageUrl": "string",
+          "isUSABased": "boolean",
+          "lsRole": "string",
+          "lstaffId": "number"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1"
+        }
+      ]
+    },
+    "selectValueItem": {
+      "chains": [
+        {
+          "chainId": "SelectValueItemChangeChain",
+          "parameters": {
+            "key": "{{$event.detail.value.key}}",
+            "data": "{{$event.detail.value.data}}",
+            "metadata": "{{$event.detail.value.metadata}}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-avatar": {
+        "path": "ojs/ojavatar"
+      },
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-chart": {
+        "path": "ojs/ojchart"
+      },
+      "oj-chart-item": {
+        "path": "ojs/ojchart"
+      },
+      "oj-collapsible": {
+        "path": "ojs/ojcollapsible"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-list-item-layout": {
+        "path": "ojs/ojlistitemlayout"
+      },
+      "oj-list-view": {
+        "path": "ojs/ojlistview"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+    }
+  }
+}

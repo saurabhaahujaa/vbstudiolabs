@@ -1,0 +1,15 @@
+{
+  "root": "assignExpData",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "assignExpData": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.expName": {
+          "source": "{{ $flow.variables.expName }}"
+        }
+      }
+    }
+  }
+}

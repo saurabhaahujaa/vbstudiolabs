@@ -1,0 +1,30 @@
+{
+  "description": "",
+  "root": "assignExpData",
+  "actions": {
+    "assignExpData": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$flow.variables.expName": {
+          "source": "{{ $variables.value }}"
+        }
+      },
+      "outcomes": {
+        "success": "callDashboardNavigationChain"
+      }
+    },
+    "callDashboardNavigationChain": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "DashboardNavigationActionChain"
+      }
+    }
+  },
+  "variables": {
+    "value": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

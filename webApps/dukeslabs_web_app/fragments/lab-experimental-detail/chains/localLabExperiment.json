@@ -1,0 +1,37 @@
+{
+  "root": "callLabExperiment",
+  "description": "",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callLabExperiment.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callLabExperiment": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "businessObjects/get_LabExperiments",
+        "uriParams": {
+          "LabExperiments_Id": "{{ $fragment.variables.expId }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignLabExperiments"
+      }
+    },
+    "assignLabExperiments": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$fragment.variables.get_LabExperiment": {
+          "source": "{{ $chain.results.callLabExperiment.body }}",
+          "auto": "always"
+        }
+      }
+    }
+  }
+}

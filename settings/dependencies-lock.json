@@ -3,6 +3,11 @@
     "oj-dynamic": {
       "version": "13.1.1",
       "components": {
+        "shared": "13.1.1",
+        "form": "13.1.1",
+        "utils": "13.1.1",
+        "bind-field": "13.1.1",
+        "providers": "13.1.1",
         "table": "13.1.1"
       }
     }

@@ -1,0 +1,32 @@
+{
+  "title": "main styles demo",
+  "description": "",
+  "variables": {},
+  "metadata": {},
+  "types": {},
+  "eventListeners": {
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-checkboxset": {
+        "path": "ojs/ojcheckboxset"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-radioset": {
+        "path": "ojs/ojradioset"
+      }
+    }
+  }
+}

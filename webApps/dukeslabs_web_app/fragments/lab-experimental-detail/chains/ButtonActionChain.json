@@ -1,0 +1,16 @@
+{
+  "description": "",
+  "root": "fireExpnameChange",
+  "actions": {
+    "fireExpnameChange": {
+      "module": "vb/action/builtin/fireCustomEventAction",
+      "parameters": {
+        "name": "empNameChange",
+        "payload": {
+          "expname": "{{ $fragment.variables.get_LabExperiment.name }}"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

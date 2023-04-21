@@ -1,0 +1,95 @@
+<!-- Mobile only header and page title -->
+<header role="banner" class="oj-sm-flex-initial vb-web-applayout-header oj-md-hide">
+  <div role="image" class="vb-web-applayout-header-image-stripe"></div>
+  <div class="oj-flex-bar oj-sm-align-items-center vb-web-applayout-header-content">
+    <!-- Navigator toggle button will render only if we have a drawer -->
+    <oj-bind-if test="[[ document.querySelector('oj-vb-fragment[name=\'shell-drawer\']') ]]">
+      <div class="oj-flex-bar">
+        <oj-button on-oj-action="[[$listeners.toggleDrawer]]" chroming="borderless"
+                   display="icons">
+          <span slot="startIcon" class="oj-ux-ico-menu"></span>
+          <span><oj-bind-text value="[[$application.translations.app.app_title_navigation_drawer]]"></oj-bind-text></span>
+        </oj-button>
+      </div>
+    </oj-bind-if>
+    <!-- Page specific title and actions with overflow menu displayed -->
+    <div class="oj-sm-margin-2x-horizontal oj-sm-align-items-center oj-md-hide oj-sm-flex-1">
+      <div class="vb-content-header oj-flex oj-sm-flex-items-initial oj-sm-align-items-center">
+        <div class="oj-flex-item">
+          <div class="oj-typography-body-lg oj-typography-semi-bold">
+            <oj-bind-text value="lab clients"></oj-bind-text>
+          </div>
+          <!-- Add Page specific actions etc -->
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Page specific title and actions for desktop formfactor -->
+<div class="vb-content-header oj-flex oj-sm-flex-1 oj-sm-only-hide oj-sm-align-items-center">
+  <div role="image" class="vb-content-header-image-stripe"></div>
+  <div class="oj-flex-item">
+    <div class="oj-typography-body-lg oj-typography-semi-bold">
+      <oj-bind-text value="lab clients"></oj-bind-text>
+    </div>
+    <!-- Add Page specific actions etc -->
+  </div>
+</div>
+<div class="oj-flex">
+  <oj-select-single label-hint="Select Lab Client" class="oj-flex-item oj-sm-12 oj-md-6"
+    data="[[$variables.labClientsListSDP]]" item-text="name" on-value-item-changed="[[$listeners.selectValueItem]]"></oj-select-single>
+  <div class="oj-flex-item oj-sm-12 oj-md-2">
+    <oj-button label="Staff" on-oj-action="[[$listeners.buttonAction2]]"></oj-button>
+  </div>
+</div>
+<div class="oj-flex">
+  <oj-collapsible class="oj-flex-item oj-sm-12 oj-md-12" expanded="true">
+    <oj-table scroll-policy="loadMoreOnScroll" data="[[$variables.labExperimentsListSDP2]]"
+      columns='[{"headerText":"Name","field":"name"},{"headerText":"owner","field":"owner"},{"headerText":"budget","field":"budget"}]'></oj-table>
+  </oj-collapsible>
+</div>
+<div class="oj-flex">
+  <oj-collapsible class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-chart type="pie" class="oj-sm-flex-initial" data="[[$variables.labExperimentsListSDP3]]" legend.title="name">
+      <template slot="itemTemplate">
+        <oj-chart-item value="[[ $current.data.budget ]]" series-id="[[ $current.data.name ]]"
+          group-id="[[['Undefined']]]"></oj-chart-item>
+      </template>
+    </oj-chart>
+    <oj-dialog dialog-title="List of Staff" id="staffDialog">
+      <div slot="body">
+        <div class="oj-flex">
+          <oj-list-view class="oj-flex-item oj-sm-12 oj-md-12" data="[[$variables.sTAFFListSDP]]">
+            <template slot="itemTemplate">
+              <oj-list-item-layout>
+                <div slot="leading">
+                  <oj-avatar class="oj-flex-item oj-sm-flex-initial" src="[[ $current.data.imageUrl ]]"></oj-avatar>
+                </div>
+                <div slot="overline">
+                  <oj-bind-text value="[[ $current.data.lsRole ]]">
+                  </oj-bind-text>
+                </div>
+                <div>
+                  <oj-bind-text value="[[ $current.data.fullName ]]">
+                  </oj-bind-text>
+                </div>
+                <div slot="secondary">
+                  <oj-bind-text value="[[ $current.data.isUSABased ]]"></oj-bind-text>
+                </div>
+                <div slot="tertiary">
+                  <oj-bind-text value="[[ $current.data.id ]]"></oj-bind-text>
+                </div>
+              </oj-list-item-layout>
+            </template>
+          </oj-list-view>
+        </div>
+      </div>
+      <div slot="footer">
+        <oj-button on-oj-action="[[$listeners.buttonAction]]">Close</oj-button>
+      </div>
+    </oj-dialog>
+  </oj-collapsible>
+</div>
+
+

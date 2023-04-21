@@ -1,0 +1,31 @@
+{
+  "description": "",
+  "root": "assignVariablesSelectedLabClient",
+  "actions": {
+    "assignVariablesSelectedLabClient": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.selectedLabClient": {
+          "source": "{{ $variables.key }}"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "data": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "metadata": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

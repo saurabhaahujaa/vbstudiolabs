@@ -1,0 +1,128 @@
+{
+    "fields": [
+        {
+            "type": "number",
+            "name": "id",
+            "internal": false,
+            "key": true,
+            "oid": "6d4bf242-e4bc-4aba-a949-a42dfa8089ea",
+            "required": true,
+            "unique": true,
+            "displayLabel": "Id"
+        },
+        {
+            "type": "datetime",
+            "name": "creationDate",
+            "internal": false,
+            "oid": "dad97b2a-ff9b-4e3f-ac24-022323d68e0d",
+            "displayLabel": "Created",
+            "historyType": "timeCreated"
+        },
+        {
+            "type": "datetime",
+            "name": "lastUpdateDate",
+            "internal": false,
+            "oid": "3236de37-7e82-4b05-bb38-284fdb531aa4",
+            "displayLabel": "Last Updated",
+            "historyType": "timeUpdated"
+        },
+        {
+            "type": "string",
+            "name": "createdBy",
+            "internal": false,
+            "oid": "8ae8bbae-7ef2-4f35-a545-a9696a05eae9",
+            "displayLabel": "Created By",
+            "historyType": "createdBy"
+        },
+        {
+            "type": "string",
+            "name": "lastUpdatedBy",
+            "internal": false,
+            "oid": "10ab6e08-47d2-44c5-a749-8f19c5b28bbe",
+            "displayLabel": "Last Updated By",
+            "historyType": "updatedBy"
+        },
+{
+            "type": "number",
+            "name": "versionNumber",
+            "internal": false,
+            "oid": "853fe965-4fad-4e7c-95ce-ae537da11b90",
+            "displayLabel": "Version Number",
+            "historyType": "versionNumber"
+        },
+        {
+            "type": "string",
+            "name": "name",
+            "oid": "41179748-d5db-4280-a970-f79c86944c5f",
+            "required": true,
+            "displayLabel": "Name"
+        }        ,
+        {
+            "type": "string",
+            "name": "countryCode",
+            "oid": "8c9f9dcd-c725-472a-8b73-b46176141c70",
+            "displayLabel": "Country Code"
+        }        ,
+{
+            "type": "string",
+            "name": "flag",
+            "oid": "86f6fc47-693b-403e-b33e-2300f86994c2",
+            "displayLabel": "Flag"
+        },
+        {
+            "type": "number",
+            "aggregation": {
+                "aggregationFunction": "COUNT",
+                "aggregationPath": [
+                    {
+                        "entityId": "STAFF",
+                        "mappingFieldId": "labClientId"
+                    }
+                ]
+            },
+            "name": "staffCount",
+            "oid": "e6830f46-9e61-422d-a0f1-7c9bf4b2ddcc",
+            "displayLabel": "Staff Count"
+        }        ,
+        {
+            "type": "number",
+            "aggregation": {
+                "aggregationFunction": "COUNT",
+                "aggregationPath": [
+                    {
+                        "entityId": "STAFF",
+                        "mappingFieldId": "labClientId",
+                        "condition": {
+                            "fieldId": "lsRole",
+                            "operator": "Equals",
+                            "value": "S"
+                        }
+                    }
+                ]
+            },
+            "name": "scientistsCount",
+            "oid": "8b334a3d-2d0e-4d61-89d5-78d9cb1e9add",
+            "displayLabel": "Scientists Count"
+        }
+    ],
+    "name": "LabClients",
+    "oid": "9fc90922-6057-4fb5-89ab-d232901a77cf",
+    "displayLabel": "Lab Clients",
+    "relationships": [
+        {
+            "name": "lABSTAFFCollection",
+            "reverseRelationship": "labClientIdObject",
+            "targetEntity": "STAFF",
+            "type": "incoming",
+            "exposeAccessor": true,
+            "displayField": "name"
+        }        ,
+        {
+            "name": "labExperimentsCollection",
+            "reverseRelationship": "labClientObject",
+            "targetEntity": "LabExperiments",
+            "type": "incoming",
+            "displayField": "name"
+        }
+      ]
+}
