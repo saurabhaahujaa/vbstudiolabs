@@ -1,0 +1,147 @@
+{
+    "displayLabel": "Lab Experiments",
+    "name": "LabExperiments",
+    "oid": "2425b67e-4632-4b33-ae87-0017a3befd45",
+    "fields": [
+        {
+            "displayLabel": "Id",
+            "name": "id",
+            "oid": "24aa1030-d13f-4ef4-a624-47c89e21c248",
+            "type": "number",
+            "required": true
+        },
+        {
+            "displayLabel": "Created",
+            "historyType": "timeCreated",
+            "name": "creationDate",
+            "oid": "8b76a1e0-1591-4d9e-81ab-15b539eb9445",
+            "type": "datetime"
+        },
+        {
+            "displayLabel": "Last Updated",
+            "historyType": "timeUpdated",
+            "name": "lastUpdateDate",
+            "oid": "a867e00a-69eb-41b1-baaf-92ab08917b39",
+            "type": "datetime"
+        },
+        {
+            "displayLabel": "Created By",
+            "historyType": "createdBy",
+            "name": "createdBy",
+            "oid": "f624d0d2-4b7c-473a-9828-2f99b3b07691",
+            "type": "string"
+        },
+        {
+            "displayLabel": "Last Updated By",
+            "historyType": "updatedBy",
+            "name": "lastUpdatedBy",
+            "oid": "138e7114-f313-45ab-b653-a1e582dafb9a",
+            "type": "string"
+        },
+        {
+            "displayLabel": "Version Number",
+            "historyType": "versionNumber",
+            "name": "versionNumber",
+            "oid": "cc79a954-85fa-4abf-be71-976e8c3614d1",
+            "type": "number"
+        },
+        {
+            "displayLabel": "exp_id",
+            "name": "expId",
+            "oid": "1a43db6e-839d-456e-b33a-a0a021f27208",
+            "type": "number",
+            "required": true,
+            "internal": true,
+            "key": true,
+            "unique": true
+        },
+        {
+            "displayLabel": "Name",
+            "name": "name",
+            "oid": "5a74164f-7ae3-4ec5-b58d-dd5a1801e24f",
+            "type": "string",
+            "required": true,
+            "unique": true
+        },
+        {
+            "displayLabel": "start_time",
+            "name": "startTime",
+            "oid": "2f444303-dc9b-472d-a69d-d51ee748dc83",
+            "type": "string",
+            "required": true
+        },
+        {
+            "displayLabel": "end_time",
+            "name": "endTime",
+            "oid": "d5a2caee-3ab4-49b2-8ebc-62e9b138fbaa",
+            "type": "string",
+            "required": false
+        },
+        {
+            "displayLabel": "complete",
+            "name": "complete",
+            "oid": "065bb83f-7d7b-461a-b4b9-9dcf423d50f8",
+            "type": "number",
+            "required": true
+        },
+        {
+            "displayLabel": "budget",
+            "name": "budget",
+            "scale": 2,
+            "oid": "b0dc805b-dc3b-4e8f-98a5-10996d982bd1",
+            "type": "number",
+            "required": true
+        },
+        {
+            "displayLabel": "lab_client",
+            "name": "labClient",
+            "oid": "7f8c3c9b-e133-4a92-866b-8c6a17ce0877",
+            "type": "number",
+            "required": true
+        },
+        {
+            "displayLabel": "owner",
+            "name": "owner",
+            "oid": "ba18b620-d614-442b-9446-35ebb7b8038b",
+            "type": "number",
+            "required": true
+        }
+    ],
+    "relationships": [
+        {
+            "name": "ownerObject",
+            "reverseRelationship": "labExperimentsCollection",
+            "targetEntity": "STAFF",
+            "type": "outgoing",
+            "exposeAccessor": true,
+            "mappingField": "owner",
+            "deleteRule": "restrict"
+        }        ,
+        {
+            "name": "labClientObject",
+            "reverseRelationship": "labExperimentsCollection",
+            "targetEntity": "LabClients",
+            "type": "outgoing",
+            "exposeAccessor": true,
+            "mappingField": "labClient",
+            "deleteRule": "restrict"
+        }        ,
+        {
+            "name": "experimentMeasurementsCollecti",
+            "reverseRelationship": "expIdObject",
+            "targetEntity": "ExpMeasurements",
+            "type": "incoming",
+            "displayField": "name"
+        }
+      ],
+    "validators": [
+        {
+            "definition": "budget > 1000\n",
+            "displayName": "Min Budget",
+            "errorMessage": "Budget Too low",
+            "name": "budget_Validation_Rule_0",
+            "refId": "14800013-f76c-4f84-bee2-0c881f0a3c03",
+            "onProperty": "budget"
+        }
+    ]
+}

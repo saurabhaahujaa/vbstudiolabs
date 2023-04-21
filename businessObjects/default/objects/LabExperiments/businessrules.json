@@ -1,0 +1,18 @@
+{
+    "fieldValidators": [
+        {
+            "active": "active",
+            "displayName": "Min Budget",
+            "errorMessage": "Budget Too low",
+            "functionBody": "budget > 1000",
+            "lastUpdate": "2023-04-19T12:37:01",
+            "oid": "14800013-f76c-4f84-bee2-0c881f0a3c03",
+            "scriptMimeType": "application/x-adf-groovy",
+            "onField": "budget"
+        }
+      ],
+    "objectFunctions": [],
+    "objectValidators": [],
+    "triggers": [],
+    "fieldTriggers": []
+}

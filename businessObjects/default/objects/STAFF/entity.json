@@ -1,0 +1,144 @@
+{
+    "displayLabel": "LAB STAFF",
+    "name": "STAFF",
+    "oid": "bb9beeab-de47-497c-a4ee-9de0daa3a179",
+    "fields": [
+        {
+            "displayLabel": "Id",
+            "name": "id",
+            "oid": "85f412b9-d280-43f7-a084-f9e6ca71aaf0",
+            "type": "number",
+            "required": true
+        },
+        {
+            "displayLabel": "Created",
+            "historyType": "timeCreated",
+            "name": "creationDate",
+            "oid": "2b04abe8-61f1-4cc5-afca-4aacc0e63f62",
+            "type": "datetime"
+        },
+        {
+            "displayLabel": "Last Updated",
+            "historyType": "timeUpdated",
+            "name": "lastUpdateDate",
+            "oid": "8928f821-1235-43d6-a288-65189e111676",
+            "type": "datetime"
+        },
+        {
+            "displayLabel": "Created By",
+            "historyType": "createdBy",
+            "name": "createdBy",
+            "oid": "dd6e7c9c-e194-42c0-946f-544dad3ef037",
+            "type": "string"
+        },
+        {
+            "displayLabel": "Last Updated By",
+            "historyType": "updatedBy",
+            "name": "lastUpdatedBy",
+            "oid": "0970f761-42bc-4540-8c95-952b0f0c6eec",
+            "type": "string"
+        },
+        {
+            "displayLabel": "Version Number",
+            "historyType": "versionNumber",
+            "name": "versionNumber",
+            "oid": "e0dca6db-665a-4220-99c8-4d77b1b3109a",
+            "type": "number"
+        },
+        {
+            "displayLabel": "lstaff_id",
+            "name": "lstaffId",
+            "oid": "19ded4dd-4f18-4caa-aac4-f5faeb97a0da",
+            "type": "number",
+            "required": true,
+            "internal": true,
+            "key": true,
+            "unique": true
+        },
+        {
+            "displayLabel": "first_name",
+            "name": "firstName",
+            "oid": "bbe73101-fcb9-4077-8125-cca1e41113f4",
+            "type": "string",
+            "required": true
+        },
+        {
+            "displayLabel": "last_name",
+            "name": "lastName",
+            "oid": "e67b2641-a7df-484a-b752-3872c6cf10f7",
+            "type": "string",
+            "required": true
+        },
+        {
+            "displayLabel": "ls_role",
+            "name": "lsRole",
+            "oid": "709dd82d-c08c-4e43-bbb1-857ed43b7405",
+            "type": "string",
+            "required": true
+        },
+        {
+            "displayLabel": "image_url",
+            "name": "imageUrl",
+            "oid": "9809755a-8adf-4e45-9d58-add18e0ebe86",
+            "type": "string",
+            "required": true
+        },
+{
+            "displayLabel": "lab_client_id",
+            "name": "labClientId",
+            "oid": "24560e49-5967-43e3-8136-ed81b29f7e94",
+            "type": "number",
+            "required": true
+        },
+        {
+            "type": "string",
+            "formula": {
+                "server": {
+                    "type": "groovy",
+                    "value": "upperCase(firstName + ' ' + lastName)"
+                }
+            },
+            "name": "fullName",
+            "oid": "4132af1c-3cd8-462f-a34a-91626fa923f5",
+            "displayLabel": "Full Name"
+        }        ,
+        {
+            "type": "boolean",
+            "formula": {
+                "server": {
+                    "type": "groovy",
+                    "value": "def labClient = labClientIdObject\nlabClient.countryCode==\"USA\""
+                }
+            },
+            "name": "isUSABased",
+            "oid": "2d88cbf4-f471-4fe3-800a-68779136bddd",
+            "updatable": false,
+            "displayLabel": "isUSABased"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "labClientIdObject",
+            "reverseRelationship": "lABSTAFFCollection",
+            "targetEntity": "LabClients",
+            "type": "outgoing",
+            "exposeAccessor": true,
+            "mappingField": "labClientId",
+            "deleteRule": "restrict"
+        }        ,
+        {
+            "name": "labExperimentsCollection",
+            "reverseRelationship": "ownerObject",
+            "targetEntity": "LabExperiments",
+            "type": "incoming",
+            "displayField": "firstName"
+        }        ,
+        {
+            "name": "experimentMeasurementsCollecti",
+            "reverseRelationship": "lstaffIdObject",
+            "targetEntity": "ExpMeasurements",
+            "type": "incoming",
+            "displayField": "firstName"
+        }
+      ]
+}
