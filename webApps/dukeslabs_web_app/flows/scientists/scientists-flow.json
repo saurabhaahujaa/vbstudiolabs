@@ -1,0 +1,8 @@
+{
+  "id": "scientists",
+  "description": "Flow main",
+  "defaultPage": "scientists-start",
+  "services": {},
+  "types": {},
+  "variables": {}
+}

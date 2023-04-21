@@ -1,5 +1,5 @@
 {
-  "title": "main",
+  "title": "scientists",
   "description": "",
   "variables": {},
   "metadata": {},
@@ -17,9 +17,6 @@
     "components": {
       "oj-button": {
         "path": "ojs/ojbutton"
-      },
-      "oj-input-text": {
-        "path": "ojs/ojinputtext"
       }
     }
   }
