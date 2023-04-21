@@ -1,7 +1,7 @@
 {
   "id": "experiments",
   "description": "Flow main",
-  "defaultPage": "experiments-fragment-demo",
+  "defaultPage": "experiments-dynamic-table",
   "services": {},
   "types": {},
   "variables": {}

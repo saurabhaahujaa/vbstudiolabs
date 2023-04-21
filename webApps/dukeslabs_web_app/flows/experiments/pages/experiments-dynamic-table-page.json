@@ -1,0 +1,53 @@
+{
+  "title": "experiments dynamic table",
+  "description": "",
+  "variables": {
+    "labExperimentsListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "businessObjects/getall_LabExperiments",
+        "keyAttributes": "expId",
+        "itemsPath": "items",
+        "responseType": "getallLabExperimentsResponse"
+      }
+    }
+  },
+  "metadata": {
+    "businessObjectsGetallLabExperimentsMetadata": {
+      "type": "vb/DynamicLayoutMetadataProviderDescriptor",
+      "defaultValue": {
+        "endpoint": "businessObjects/getall_LabExperiments",
+        "metadataPath": "items"
+      }
+    }
+  },
+  "types": {
+    "@decorators.getallLabExperimentsResponse": {
+      "endpoint": "getall_LabExperiments",
+      "service": "businessObjects",
+      "path": "response"
+    },
+    "getallLabExperimentsResponse": {
+      "items": "object[]"
+    }
+  },
+  "eventListeners": {
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dynamic-table": {
+        "path": "oj-dynamic/table/loader"
+      }
+    }
+  }
+}
