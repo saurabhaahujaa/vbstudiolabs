@@ -1,0 +1,42 @@
+{
+  "layoutTypes": {
+    "businessObjects": {
+      "kind": "operationRef",
+      "serviceId": "businessObjects",
+      "operations": [
+        "getall_LabExperiments"
+      ]
+    }
+  },
+  "layouts": {
+    "isDefault": {
+      "description": "Default Rule",
+      "type": "businessObjects",
+      "expression": "default"
+    },
+    "expTable": {
+      "type": "businessObjects",
+      "layoutType": "table",
+      "label": "expTable",
+      "rules": [
+        "isDefault"
+      ],
+      "layouts": {
+        "default": {
+          "layoutType": "table",
+          "layout": {
+            "displayProperties": [
+              "expId",
+              "name",
+              "owner",
+              "budget",
+              "complete",
+              "startTime",
+              "endTime"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "id": "experiments",
+  "description": "Flow main",
+  "defaultPage": "experiments-start",
+  "services": {},
+  "types": {},
+  "variables": {}
+}

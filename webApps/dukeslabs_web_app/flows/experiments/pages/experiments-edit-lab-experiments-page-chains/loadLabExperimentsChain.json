@@ -1,0 +1,39 @@
+{
+  "root": "loadLabExperiments",
+  "actions": {
+    "loadLabExperiments": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "businessObjects/get_LabExperiments",
+        "uriParams": {
+          "LabExperiments_Id": "[[ $page.variables.labExperimentsId ]]"
+        },
+        "responseType": "page:getLabExperimentsResponse"
+      },
+      "outcomes": {
+        "success": "assignPayload",
+        "failure": "fireErrorNotification"
+      }
+    },
+    "assignPayload": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.labExperiments": {
+          "source": "{{ $chain.results.loadLabExperiments.body }}"
+        },
+        "$page.variables.labExperimentsETag": {
+          "source": "[[ $chain.results.loadLabExperiments.headers.get('ETag') ]]"
+        }
+      }
+    },
+    "fireErrorNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "summary": "Could not load data",
+        "message": "{{ 'Could not load data: status ' + $chain.results.loadLabExperiments.status }}",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    }
+  }
+}

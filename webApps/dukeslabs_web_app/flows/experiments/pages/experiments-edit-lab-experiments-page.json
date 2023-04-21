@@ -1,0 +1,152 @@
+{
+  "title": "Edit LabExperiments",
+  "description": "Updates single LabExperiments record",
+  "variables": {
+    "labClientsListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "businessObjects/getall_LabClients",
+        "keyAttributes": "id",
+        "itemsPath": "items",
+        "responseType": "getallLabClientsResponse",
+        "uriParameters": {}
+      }
+    },
+    "labExperiments": {
+      "type": "page:getLabExperimentsResponse"
+    },
+    "labExperimentsETag": {
+      "type": "string"
+    },
+    "labExperimentsId": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "saveLabExperimentsChainInProgress": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "sTAFFListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "businessObjects/getall_STAFF",
+        "keyAttributes": "lstaffId",
+        "itemsPath": "items",
+        "responseType": "getallSTAFFResponse",
+        "uriParameters": {}
+      }
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getallLabClientsResponse": {
+      "endpoint": "getall_LabClients",
+      "service": "businessObjects",
+      "path": "response"
+    },
+    "@decorators.getallSTAFFResponse": {
+      "endpoint": "getall_STAFF",
+      "service": "businessObjects",
+      "path": "response"
+    },
+    "@decorators.getLabExperimentsResponse": {
+      "endpoint": "get_LabExperiments",
+      "service": "businessObjects",
+      "path": "response"
+    },
+    "businessObjectsServiceErrorResponseType": {
+      "body": {
+        "status": "string",
+        "title": "string",
+        "o:errorDetails": [
+          {
+            "detail": "string",
+            "o:errorCode": "string"
+          }
+        ]
+      },
+      "status": "number"
+    },
+    "getallLabClientsResponse": {
+      "items": [
+        {
+          "id": "number",
+          "name": "string"
+        }
+      ]
+    },
+    "getallSTAFFResponse": {
+      "items": [
+        {
+          "firstName": "string",
+          "lstaffId": "number"
+        }
+      ]
+    },
+    "getLabExperimentsResponse": {
+      "budget": "number",
+      "complete": "number",
+      "id": "number",
+      "labClient": "number",
+      "name": "string",
+      "owner": "number",
+      "startTime": "string"
+    }
+  },
+  "eventListeners": {
+    "backButtonClicked": {
+      "chains": [
+        {
+          "chainId": "goBackChain"
+        }
+      ]
+    },
+    "saveButtonClicked": {
+      "chains": [
+        {
+          "chainId": "saveLabExperimentsChain"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "chainId": "loadLabExperimentsChain"
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-toolbar": {
+        "path": "ojs/ojtoolbar"
+      },
+      "oj-validation-group": {
+        "path": "ojs/ojvalidationgroup"
+      }
+    }
+  }
+}

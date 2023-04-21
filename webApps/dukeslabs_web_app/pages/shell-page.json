@@ -1,6 +1,6 @@
 {
   "description": "",
-  "routerFlow": "main",
+  "routerFlow": "experiments",
   "variables": {
     "avatarInfo": {
       "type": "object",
