@@ -14,5 +14,9 @@
   "app_sign_out": "Sign Out",
   "@app_sign_out": {
     "description": "Text on menu option to log out of the application"
+  },
+  "button__text": "Edit LabExperiments",
+  "@button__text": {
+    "description": ""
   }
 }
