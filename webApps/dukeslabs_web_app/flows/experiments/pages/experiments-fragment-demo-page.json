@@ -33,6 +33,16 @@
     }
   },
   "eventListeners": {
+    "expFragementEmpNameChange": {
+      "chains": [
+        {
+          "chainId": "FragmentEmpNameChangeChain",
+          "parameters": {
+            "expname": "{{ $event.detail.expname }}"
+          }
+        }
+      ]
+    },
     "tableFirstSelectedRow": {
       "chains": [
         {

@@ -1,10 +1,29 @@
 {
   "title": "",
   "description": "",
-  "eventListeners": {},
-  "events": {},
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    }
+  },
+  "events": {
+    "empNameChange": {
+      "propagationBehavior": "container",
+      "description": "Emits to container",
+      "payloadType": {
+        "expname": "string"
+      }
+    }
+  },
   "imports": {
     "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
       "oj-input-text": {
         "path": "ojs/ojinputtext"
       }
