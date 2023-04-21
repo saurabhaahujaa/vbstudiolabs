@@ -20,6 +20,19 @@
     }
   },
   "types": {
+    "@decorators.countryType": {
+      "endpoint": "getAll",
+      "service": "Countries",
+      "path": "response"
+    },
+    "countryType": 
+      {
+        "alpha3Code": "string",
+        "capital": "string",
+        "flag": "string",
+        "name": "string"
+      }
+    ,
     "navigationItem": {
       "id": "string",
       "name": "string",
@@ -35,8 +48,15 @@
       "name": "string",
       "iconClass": "string"
     }
+
   },
   "variables": {
+    "countryADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "countryType"
+      }
+    },
     "globalHeadersADP": {
       "type": "vb/ArrayDataProvider2",
       "description": "The model describing the Global Applications headers",
@@ -89,8 +109,17 @@
       "type": "navigationItem[]",
       "defaultValue": []
     }
+
   },
   "eventListeners": {
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "loadCountries"
+        }
+      ]
+    },
     "vbResourceChanged": {
       "chains": [
         {
@@ -101,6 +130,7 @@
         }
       ]
     }
+
   },
   "userConfig": {
     "type": "vb/DefaultSecurityProvider",
