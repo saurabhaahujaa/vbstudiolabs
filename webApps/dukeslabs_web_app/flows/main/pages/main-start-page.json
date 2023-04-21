@@ -14,7 +14,7 @@
     "dashboardButtonAction": {
       "chains": [
         {
-          "chainId": "DashboardActionChain"
+          "chainId": "DashboardNavigationActionChain"
         }
       ]
     },
