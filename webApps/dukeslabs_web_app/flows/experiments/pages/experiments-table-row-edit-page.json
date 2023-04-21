@@ -1,0 +1,75 @@
+{
+  "title": "experiments table row edit",
+  "description": "",
+  "variables": {
+    "labExperimentsListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "businessObjects/getall_LabExperiments",
+        "keyAttributes": "expId",
+        "itemsPath": "items",
+        "responseType": "getallLabExperimentsResponse"
+      }
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getallLabExperimentsResponse": {
+      "endpoint": "getall_LabExperiments",
+      "service": "businessObjects",
+      "path": "response"
+    },
+    "getallLabExperimentsResponse": {
+      "items": [
+        {
+          "budget": "number",
+          "expId": "number",
+          "name": "string",
+          "startTime": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date-time": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+    },
+    "modules": {
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      },
+      "ojValidationNumber": {
+        "path": "ojs/ojvalidation-number"
+      }
+    }
+  }
+}

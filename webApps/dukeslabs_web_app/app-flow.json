@@ -140,8 +140,9 @@
   "security": {},
   "imports": {
     "css": [
-      "https://static.oracle.com/cdn/fnd/gallery/2304.0.0/images/iconfont/ojuxIconFont.min.css",
-      "/resources/css/app.css"
+      "/resources/css/app.css",
+      "/resources/css/redwood-overrides.css",
+      "https://static.oracle.com/cdn/fnd/gallery/2304.0.0/images/iconfont/ojuxIconFont.min.css"
     ]
   },
   "@dt": {
